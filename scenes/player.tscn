@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://c61pqu1ko2rmx"]
+[gd_scene load_steps=25 format=3 uid="uid://c61pqu1ko2rmx"]
 
 [ext_resource type="Texture2D" uid="uid://btblrxyeiuy06" path="res://assets/Snoblin_Prototype_Character/Assets/Prototype_Character/prototype_character.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://5n7osdk3t0py" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dt1ui6qvn6t53" path="res://assets/Snoblin_Prototype_Character/Assets/Prototype_Character/prototype_character1.png" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bqhtun714w6i3" path="res://scenes/camera_2d.tscn" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -173,3 +174,5 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_sweqy")
+
+[node name="Camera2D" parent="." instance=ExtResource("4_dqkch")]

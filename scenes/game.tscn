@@ -1,7 +1,125 @@
-[gd_scene load_steps=3 format=3 uid="uid://g67j2g8adl50"]
+[gd_scene load_steps=15 format=3 uid="uid://g67j2g8adl50"]
 
 [ext_resource type="PackedScene" uid="uid://c61pqu1ko2rmx" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://c5fh77yi3arbm" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://k5al535e0xqn" path="res://scenes/tile_map.tscn" id="3_gee14"]
+[ext_resource type="Texture2D" uid="uid://db1kl8ydnwgpe" path="res://assets/mystic_woods_free_2.2/sprites/tilesets/grass.png" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://dpr35r7r6551h" path="res://assets/mystic_woods_free_2.2/sprites/tilesets/decor_8x8.png" id="4_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://cos8y28v6su4r" path="res://assets/mystic_woods_free_2.2/sprites/tilesets/floors/wooden.png" id="6_vtaks"]
+[ext_resource type="Texture2D" uid="uid://hnkn80uwtani" path="res://assets/mystic_woods_free_2.2/sprites/tilesets/fences.png" id="7_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://b7mm7j6efecp2" path="res://assets/mystic_woods_free_2.2/sprites/tilesets/plains.png" id="8_dinhu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvuet"]
+texture = ExtResource("4_0tnpc")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
+texture = ExtResource("3_lnu2h")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
+texture = ExtResource("6_vtaks")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ca42v"]
+texture = ExtResource("7_kvpfn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rysoc"]
+texture = ExtResource("8_dinhu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ssvqc"]
+sources/0 = SubResource("TileSetAtlasSource_kvuet")
+sources/2 = SubResource("TileSetAtlasSource_trtic")
+sources/4 = SubResource("TileSetAtlasSource_ir15t")
+sources/6 = SubResource("TileSetAtlasSource_ca42v")
+sources/7 = SubResource("TileSetAtlasSource_rysoc")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yqjtg")
@@ -10,6 +128,5 @@ script = ExtResource("1_yqjtg")
 z_index = 2
 position = Vector2(0, -7)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -7)
-zoom = Vector2(4, 4)
+[node name="TileMap" parent="." instance=ExtResource("3_gee14")]
+tile_set = SubResource("TileSet_ssvqc")

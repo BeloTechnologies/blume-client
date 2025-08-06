@@ -7,8 +7,9 @@ var last_direction := "down"
 
 func _process(delta):
 	# Smooth movement (optional)
-		position.x = lerp(position.x, last_position.x, 10 * delta)
-		position.y = lerp(position.y, last_position.y, 10 * delta)
+		var lerp_speed := 25
+		position.x = lerp(position.x, last_position.x, lerp_speed * delta)
+		position.y = lerp(position.y, last_position.y, lerp_speed * delta)
 
 func set_target_position(target: Vector2):
 	last_position = target
